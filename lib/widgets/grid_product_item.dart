@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_app/models/product.dart';
 import 'package:shop_app/screens/product_details_screen.dart';
 
 class GridProductItem extends StatelessWidget {
-  final String id,title,image;
-  const GridProductItem({super.key, required this.id, required this.title, required this.image});
+  const GridProductItem({super.key,});
 
   @override
   Widget build(BuildContext context) {
+    final product = Provider.of<Product>(context);
     return ClipRRect(
       borderRadius: BorderRadius.circular(18),
       child: GridTile(
         footer: GridTileBar(
-          title: Text(title, textAlign: TextAlign.center,style: const TextStyle(fontSize: 10),),
+          title: Text(product.title, textAlign: TextAlign.center,style: const TextStyle(fontSize: 10),),
           backgroundColor: Colors.black54,
-          leading: IconButton(icon: const Icon(Icons.favorite),
+          leading: IconButton(icon: product.isFavorite ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
             onPressed: (){
-            Navigator.of(context).pushNamed(ProductDetailsScreen.id, arguments: id);
+              product.toggleIsFav();
             },
           ),
           trailing: IconButton(icon: const Icon(Icons.shopping_cart),
@@ -24,9 +26,9 @@ class GridProductItem extends StatelessWidget {
         ),
         child: GestureDetector(
           onTap: (){
-
+            Navigator.of(context).pushNamed(ProductDetailsScreen.id, arguments: product.id);
           },
-          child: Image.asset(image),
+          child: Image.asset(product.image),
         ),
       ),
     );

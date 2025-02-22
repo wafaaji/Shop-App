@@ -20,13 +20,13 @@ class Products with ChangeNotifier{
         id: '1003',
         title: 'Iphone',
         description: "it's a phone",
-        image: 'assets/images/iphone.jpeg',
+        image: 'assets/images/iphone.jpg',
         price: 1000),
     Product(
         id: '1004',
         title: 'nokia',
         description: "it's a phone",
-        image: 'assets/images/nokia.jpeg',
+        image: 'assets/images/nokia.jpg',
         price: 1000),
     Product(
         id: '1005',

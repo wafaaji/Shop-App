@@ -15,8 +15,9 @@ class MainShoppingScreen extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: const Text("Phone Shop"),
+            backgroundColor: Colors.pinkAccent,
           ),
-          body: ProductsGrid(),
+          body: const ProductsGrid(),
         ),
     );
   }
@@ -35,10 +36,9 @@ class ProductsGrid extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       itemCount: availProducts.length,
       itemBuilder: (context, index) {
-        return GridProductItem(
-          id: availProducts[index].id,
-          title: availProducts[index].title,
-          image: availProducts[index].image,
+        return ChangeNotifierProvider<Product>(
+          create: (BuildContext context) => availProducts[index],
+          child: const GridProductItem(),
         );
         },
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
