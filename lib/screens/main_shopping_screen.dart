@@ -3,11 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:shop_app/models/product.dart';
 import 'package:shop_app/providers/products_provider.dart';
 import 'package:shop_app/screens/cart_screen.dart';
+import 'package:shop_app/screens/order_screen.dart';
 import 'package:shop_app/widgets/grid_product_item.dart';
 
 class MainShoppingScreen extends StatefulWidget {
   static const id = '/MainShoppingScreen';
-  MainShoppingScreen({super.key});
+  const MainShoppingScreen({super.key});
 
   @override
   State<MainShoppingScreen> createState() => _MainShoppingScreenState();
@@ -21,6 +22,13 @@ class _MainShoppingScreenState extends State<MainShoppingScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          floatingActionButton: FloatingActionButton.extended(
+            backgroundColor: Colors.pink,
+            onPressed: (){
+              Navigator.of(context).pushNamed(OrderScreen.id);
+            },
+            label: const Text("My Orders"),
+          ),
           appBar: AppBar(
             title: const Text("Phone Shop"),
             backgroundColor: Colors.pinkAccent,
