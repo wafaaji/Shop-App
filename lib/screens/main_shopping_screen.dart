@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/models/product.dart';
 import 'package:shop_app/providers/products_provider.dart';
+import 'package:shop_app/screens/cart_screen.dart';
 import 'package:shop_app/widgets/grid_product_item.dart';
 
 class MainShoppingScreen extends StatefulWidget {
@@ -45,6 +46,12 @@ class _MainShoppingScreenState extends State<MainShoppingScreen> {
                   ];
                 },
               ),
+              IconButton(
+                onPressed: (){
+                  Navigator.of(context).pushNamed(CartScreen.id);
+                },
+                icon: const Icon(Icons.shopping_cart_checkout,),
+              )
             ],
           ),
           body: ProductsGrid(isFav: showFav,),
