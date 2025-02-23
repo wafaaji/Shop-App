@@ -8,29 +8,32 @@ class GridProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Product>(context);
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(18),
-      child: GridTile(
-        footer: GridTileBar(
-          title: Text(product.title, textAlign: TextAlign.center,style: const TextStyle(fontSize: 10),),
-          backgroundColor: Colors.black54,
-          leading: IconButton(icon: product.isFavorite ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
-            onPressed: (){
-              product.toggleIsFav();
+    //final product = Provider.of<Product>(context);
+    return Consumer<Product>(
+      builder: (context, product, child){
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(18),
+        child: GridTile(
+          footer: GridTileBar(
+            title: Text(product.title, textAlign: TextAlign.center,style: const TextStyle(fontSize: 10),),
+            backgroundColor: Colors.black54,
+            leading: IconButton(icon: product.isFavorite ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+              onPressed: (){
+                product.toggleIsFav();
+              },
+            ),
+            trailing: IconButton(icon: const Icon(Icons.shopping_cart),
+              onPressed: (){},
+            ),
+          ),
+          child: GestureDetector(
+            onTap: (){
+              Navigator.of(context).pushNamed(ProductDetailsScreen.id, arguments: product.id);
             },
-          ),
-          trailing: IconButton(icon: const Icon(Icons.shopping_cart),
-            onPressed: (){},
+            child: Image.asset(product.image),
           ),
         ),
-        child: GestureDetector(
-          onTap: (){
-            Navigator.of(context).pushNamed(ProductDetailsScreen.id, arguments: product.id);
-          },
-          child: Image.asset(product.image),
-        ),
-      ),
+      );}
     );
   }
 }
