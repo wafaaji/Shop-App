@@ -36,6 +36,10 @@ class Products with ChangeNotifier{
         price: 1000),
   ];
 
+  List<Product> get favoriteProducts{
+    return _availProducts.where((product)=> product.isFavorite).toList();
+  }
+
   List<Product> get availProduct => _availProducts;
 
   // void addProduct(value){
