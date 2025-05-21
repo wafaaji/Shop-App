@@ -13,7 +13,6 @@ Small Shop App for shopping and displaying products.
 - **Provider:** For State Managment.
 
 ## Screens
-- The Interfaces are located in the Arabic Folder
 <div style="display: flex; justify-content: space-between;">
   <img src="assets/screenshots/products.jpg" alt="products" width="300"/>
   <img src="assets/screenshots/empty card.jpg" alt="empty card" width="300"/>
