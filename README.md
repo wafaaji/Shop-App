@@ -15,5 +15,8 @@ Small Shop App for shopping and displaying products.
 ## Screens
 - The Interfaces are located in the Arabic Folder
 <div style="display: flex; justify-content: space-between;">
-  <img src="Arabic/Job And Training App Arabic Version.png" alt="Job And Training App Arabic Version" width="900"/>
+  <img src="assets/screenshots/products.jpg" alt="products" width="300"/>
+  <img src="assets/screenshots/empty card.jpg" alt="empty card" width="300"/>
+  <img src="assets/screenshots/favorite products.jpg" alt="favorite products" width="300"/>
+  <img src="assets/screenshots/your card.jpg" alt="your card" width="300"/>
 </div>
